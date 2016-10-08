@@ -6,9 +6,7 @@ engines:
     enabled: true
     config:
       languages:
-      - ruby
       - javascript
-      - python
       - php
   eslint:
     enabled: true
@@ -24,8 +22,8 @@ ratings:
   - "**.jsx"
   - "**.module"
   - "**.php"
-  - "**.py"
-  - "**.rb"
 exclude_paths:
 - config/
 - tests/
+- vendor/
+- node_modules/
