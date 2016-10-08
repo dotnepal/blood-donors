@@ -13,7 +13,7 @@ class ExampleTest extends TestCase
      */
     public function testBasicExample()
     {
-        $this->visit('http://blood-donor.dev/')->see('Laravel');
+        $this->visit('http://localhost/')->see('Laravel');
     }
 
     protected function makeRequest($method, $uri, $parameters = [], $cookies = [], $files = [])
@@ -26,7 +26,7 @@ class ExampleTest extends TestCase
 
         $this->currentUri = $this->app->make('request')->fullUrl();
 
-        dd("Current URL", $this->currentUri);
+        // dd("Current URL", $this->currentUri);
 
         $this->crawler = new Crawler($this->response->getContent(), $this->currentUri);
 
