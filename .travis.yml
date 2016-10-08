@@ -5,6 +5,10 @@ php:
 
 sudo: required
 
+env:
+  matrix:
+    - USE_NETWORK=true
+
 matrix:
   fast finish: true
   allow_failures:
