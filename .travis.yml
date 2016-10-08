@@ -34,7 +34,7 @@ before_script:
   - chmod -R 777 storage/
   - chmod -R 777 storage/logs
   - touch storage/logs/laravel.log
-  # - cat /etc/hosts
+  - cat /etc/hosts
   # - echo "127.0.0.1 blood-donor.dev"|sudo tee -a "/etc/hosts"
   # - sudo php -S localhost:80 -t public &
   # - until netstat -an 2>/dev/null | grep '80.*LISTEN'; do true; done
