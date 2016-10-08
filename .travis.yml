@@ -39,7 +39,7 @@ before_script:
   # - sudo php -S localhost:80 -t public &
   # - until netstat -an 2>/dev/null | grep '80.*LISTEN'; do true; done
   # - cat /etc/hosts
-  - curl -I "http://localhost"
+  # - curl -I "http://localhost"
   # - sleep 5
 
 script:
