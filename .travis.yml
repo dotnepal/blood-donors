@@ -14,9 +14,6 @@ addons:
   hosts:
     - localhost
 
-services:
-  - nginx
-
 cache:
   directories:
     - vendor/
@@ -29,7 +26,7 @@ before_install:
 install:
   - cp .env.travis .env
   - ls -al .env*
-  - composer install
+  - composer install --dev
   - php artisan cache:clear
 
 before_script:
@@ -39,10 +36,10 @@ before_script:
   - touch storage/logs/laravel.log
   # - cat /etc/hosts
   # - echo "127.0.0.1 blood-donor.dev"|sudo tee -a "/etc/hosts"
-  # - sudo php artisan serve --port 80 &
+  # - sudo php -S localhost:80 -t public &
   # - until netstat -an 2>/dev/null | grep '80.*LISTEN'; do true; done
   # - cat /etc/hosts
-  - curl -I "http://localhost/"
+  - curl -I "http://localhost"
   # - sleep 5
 
 script:
