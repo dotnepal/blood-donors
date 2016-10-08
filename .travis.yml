@@ -1,0 +1,53 @@
+language: php
+
+php:
+  - 7.0
+
+sudo: required
+
+matrix:
+  fast finish: true
+  allow_failures:
+    - php: hhvm
+
+addons:
+  hosts:
+    - localhost
+
+cache:
+  directories:
+    - vendor/
+    - ${HOME}/.composer/cache
+    - ${HOME}/vendor-cache/
+
+before_install:
+  - travis_retry composer self-update
+
+install:
+  - cp .env.travis .env
+  - ls -al .env*
+  - composer install --dev
+  - php artisan cache:clear
+
+before_script:
+  - chmod -R 777 bootstrap/cache
+  - chmod -R 777 storage/
+  - chmod -R 777 storage/logs
+  - touch storage/logs/laravel.log
+  - cat /etc/hosts
+  # - echo "127.0.0.1 blood-donor.dev"|sudo tee -a "/etc/hosts"
+  # - sudo php -S localhost:80 -t public &
+  # - until netstat -an 2>/dev/null | grep '80.*LISTEN'; do true; done
+  # - cat /etc/hosts
+  # - curl -I "http://localhost"
+  # - sleep 5
+
+script:
+  - ls -1
+  - echo $PATH
+  - echo $PWD
+  - php vendor/bin/phpunit --configuration phpunit.xml
+
+after_failure:
+  - echo $PWD
+  - cat storage/logs/laravel.log
