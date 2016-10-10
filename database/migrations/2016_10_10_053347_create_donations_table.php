@@ -15,8 +15,8 @@ class CreateDonationTable extends Migration
     {
       Schema::create('donations',function(Blueprint $table){
         $table->increments('id');
-        $table->integer('donor_id');
-        $table->integer('receiver_id')
+        $table->foreign('donor_id')->refrences('id')->on('users');
+        $table->foreign('receiver_id')->refrences('id')->on('users');
         $table->timestamps();
       });
     }
