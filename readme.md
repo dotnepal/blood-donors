@@ -1,28 +1,24 @@
-Blood Donors List In Nepal
+Blood Donors Web Application
 --------------------------
 
-This is a repository that contains the information about the blood donors in Nepal. This would probably help needy ones to get blood when they need. This project has a page [Donor's Page](https://bravegurkha.github.io/blood-donors/) where you can get information about blood donors. If there is any problem with the information being provided at the respective page then please email at srestaswrnm[at]gmail[dot]com or contact directly in phone: 9813004402. You may also create an issue for it.
+[![Build Status](https://travis-ci.org/dotnepal/blood-donors.svg?branch=master)](https://travis-ci.org/dotnepal/blood-donors)
+[![Code Climate](https://codeclimate.com/github/dotnepal/blood-donors/badges/gpa.svg)](https://codeclimate.com/github/dotnepal/blood-donors)
+[![Test Coverage](https://codeclimate.com/github/dotnepal/blood-donors/badges/coverage.svg)](https://codeclimate.com/github/dotnepal/blood-donors/coverage)
+
+Repository to manage the blood donors nepal web-application.
 
 How to contribute?
 -------------------
-
-Thank you for the contribution in advance. You can just simply edit a **donors.json** for adding names of donors. The data should be formatted as previous one and the number should be just incremented. You can contriute to javascript file and index.html or add more the better experience of needy ones.
-
-Format:
-```json
-"<number>": {
-    "name": "<name>",
-    "blood_group" : "<blood group>",
-    "contact" : "<contact number>",
-    "address" : "<address>"
-}
-```
+- Currently we need the backend and frontend developer
+- Can help us to gather information on blood donors
+- See the issues and pick any one that you are interested in
 
 GIT-PRE-COMMIT-HOOK
 -------------------
-- `composer install` should have installed the php-cs-fixer `vendor/bin/`.
+- Execute `composer install --dev`
+- After above command is finished running, you will have  `php-cs-fixer` installed in `vendor/bin/` directory.
 
-Copy and paste the following code into `.git/hooks/pre-commit` file. Create it if it doesn't exist yet.
+Now, Copy and paste the following code into `.git/hooks/pre-commit` file. Create it if it doesn't exist yet.
 
 ```
 #!/bin/sh
@@ -53,7 +49,7 @@ After copy & paste, execute the following command from the project root director
 Having this file ensure that our every commit is passed through php code sniffer and we are using the right standard (PSR2 etc.)
 
 TODO
-----
+-----
 - Create dashboard to add/remove/update donor information
 - Add sign up page for blood donors
 - Add blood donation events page
