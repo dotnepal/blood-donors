@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use Faker\Factory as Faker;
+
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -11,106 +13,42 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-
+      $faker = Faker::create();
+      $blood_group = array('A+','A-','B+','B-','O+','O-','AB+','AB-'); // Blood Groups
+      $gender_data = array('Male','Female'); //Gender Data
+      //Admin Data
       \App\User::create(array(
-        'first_name' => 'Swornim',
-        'last_name'=> 'Shrestha',
-        'email' => 'srestaswrnm@gmail.com',
-        'username' => 'swornim',
+        'first_name' => $faker->firstNameMale,
+        'last_name'=> $faker->lastName,
+        'email' => $faker->email,
+        'username' => $faker->userName,
         'password' => \Hash::make('secret'),
-        'phone' => '9813004402',
-        'address' => 'Chautara, Sindhupalchok',
+        'phone' => '9810'.rand(100000,999999), // For Creating nepali Cellphone number
+        'address' => $faker->address,
         'gender' => 'Male',
-        'blood_group' => 'A+',
+        'blood_group' => $blood_group[rand(0,7)],
         'user_type_id' => '1',
         'remember_token' => '',
       ));
 
-      \App\User::create(array(
-        'first_name' => 'Samundra',
-        'last_name'=> 'Shrestha',
-        'email' => 'samundra_shr@gmail.com',
-        'username' => 'samundra',
-        'password' => \Hash::make('secret'),
-        'phone' => '981800203',
-        'address' => 'Kuala Lumpur, Malayisa',
-        'gender' => 'Male',
-        'blood_group' => 'AB+',
-        'user_type_id' => '1',
-        'remember_token' => '',
-      ));
+
+      //User Data
+      foreach(range(1,15) as $x){
 
       \App\User::create(array(
-        'first_name' => 'Pranish',
-        'last_name'=> 'Shrestha',
-        'email' => 'stha_pro@gmail.com',
-        'username' => 'pranish',
+        'first_name' => $faker->firstName($gender = $gender_data[rand(0,1)]),
+        'last_name'=> $faker->lastName,
+        'email' => $faker->email,
+        'username' => $faker->userName,
         'password' => \Hash::make('secret'),
-        'phone' => '9818276249',
-        'address' => 'Chautara, Sindhupalchok',
-        'gender' => 'Male',
-        'blood_group' => 'A+',
+        'phone' => '9813'.rand(100000,999999),
+        'address' => $faker->address,
+        'gender' => $gender_data[rand(0,1)],
+        'blood_group' => $blood_group[rand(0,7)],
         'user_type_id' => '2',
         'remember_token' => '',
       ));
-
-
-      \App\User::create(array(
-        'first_name' => 'Pranisha',
-        'last_name'=> 'Shrestha',
-        'email' => 'stha_pro1@gmail.com',
-        'username' => 'pranisha',
-        'password' => \Hash::make('secret'),
-        'phone' => '9818278249',
-        'address' => 'Chautara, Sindhupalchok',
-        'gender' => 'Female',
-        'blood_group' => 'A+',
-        'user_type_id' => '2',
-        'remember_token' => '',
-        ));
-
-
-        \App\User::create(array(
-        'first_name' => 'Sylvia',
-        'last_name'=> 'Shrestha',
-        'email' => 'sylvia_stha@gmail.com',
-        'username' => 'sylvia',
-        'password' => \Hash::make('secret'),
-        'phone' => '9841181282',
-        'address' => 'Chautara, Sindhupalchok',
-        'gender' => 'Female',
-        'blood_group' => 'O+',
-        'user_type_id' => '2',
-        'remember_token' => '',
-        ));
-
-
-        \App\User::create(array(
-        'first_name' => 'Rabin',
-        'last_name'=> 'Shrestha',
-        'email' => 'rabin@gmail.com',
-        'username' => 'rabin',
-        'password' => \Hash::make('secret'),
-        'phone' => '9898981389',
-        'address' => 'Chautara, Sindhupalchok',
-        'gender' => 'Male',
-        'blood_group' => 'AB+',
-        'user_type_id' => '2',
-        'remember_token' => '',
-        ));
-
-        \App\User::create(array(
-        'first_name' => 'Shreeja',
-        'last_name'=> 'Shrestha',
-        'email' => 'shreejan@gmail.com',
-        'username' => 'shreejan',
-        'password' => \Hash::make('secret'),
-        'phone' => '9813606523',
-        'address' => 'Baneshowr, Kathmandu',
-        'gender' => 'Male',
-        'blood_group' => 'O-',
-        'user_type_id' => '2',
-        'remember_token' => '',
-        ));
     }
+
+  }
 }
