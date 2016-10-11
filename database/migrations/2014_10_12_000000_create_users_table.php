@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->enum('blood_group',array('A+','A-','B+','B-','O+','O-','AB+','AB-'));
             $table->integer('user_type_id')->references('id')->on('user_type');
             $table->rememberToken();
+            $table->timestamp('deleted_at');
             $table->timestamps();
         });
     }

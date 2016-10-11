@@ -17,6 +17,7 @@ class CreateUserTypeTable extends Migration
 
           $table->increments('id');
           $table->string('title',20);
+          $table->timestamp('deleted_at');
           $table->timestamps();
         });
     }

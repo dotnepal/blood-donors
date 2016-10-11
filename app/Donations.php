@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Donations extends Model
 {
     use SoftDeletes;
-    
+  
     protected $dates = ['deleted_at'];
 }

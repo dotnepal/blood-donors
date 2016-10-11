@@ -17,6 +17,7 @@ class CreateDonationsTable extends Migration
         $table->increments('id');
         $table->integer('donor_id');
         $table->integer('receiver_id');
+        $table->timestamp('deleted_at');
         $table->timestamps();
       });
     }
