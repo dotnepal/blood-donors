@@ -5,4 +5,8 @@
 Homestead.json
 Homestead.yaml
 .env
+<<<<<<< HEAD
 .php_cs.cache
+=======
+composer.lock
+>>>>>>> master
