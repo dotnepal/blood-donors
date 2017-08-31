@@ -1,5 +1,15 @@
+Project Abondoned
+-----------------
+
+This project has been abondoned. Please feel free to fork and continue.
+If you need our help in continuation of the project, we would be glad to
+help.
+
+Regards,
+Blood Donors Team
+
 Blood Donors Web Application
---------------------------
+----------------------------
 
 [![Build Status](https://travis-ci.org/dotnepal/blood-donors.svg?branch=master)](https://travis-ci.org/dotnepal/blood-donors)
 [![Code Climate](https://codeclimate.com/github/dotnepal/blood-donors/badges/gpa.svg)](https://codeclimate.com/github/dotnepal/blood-donors)
