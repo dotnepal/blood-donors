@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+    database:
+        build: ./dockerfiles/mysql
+        image: dotsnepal/mysql
+        expose:
+            - 3306
+        volumes:
+            - donors-data:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=db_scrapper
+            - MYSQL_USER=root
+            - MYSQL_PASSWORD=root
+    nginx:
+        build: ./dockerfiles/nginx
+        image: dotsnepal/nginx
+        ports:
+            - 80:80
+            - 443:443
+        links:
+            - fpm
+        volumes:
+            - .:/vagrant
+    fpm:
+        build: ./dockerfiles/fpm
+        image: dotsnepal/fpm
+        expose:
+            - 9000
+        volumes:
+            - .:/vagrant
+        links:
+            - database
+    redis:
+        image: redis:2.8
+        expose:
+            - 6379
+volumes:
+    donors-data:
+        external: true
+    intoyo-elasticsearch:
+        external: true
+
+networks:
+    default:
+        external:
+            name: intoyo
