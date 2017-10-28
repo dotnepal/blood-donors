@@ -39,10 +39,8 @@ services:
 volumes:
     donors-data:
         external: true
-    intoyo-elasticsearch:
-        external: true
 
 networks:
     default:
         external:
-            name: intoyo
+            name: donors
